@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>JP | Asset Management</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -38,7 +38,9 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <style>
-  
+    .bg-lightgray{
+      background:#f5f5f5!important;
+    }
     .bg-white{
       background:white;
     }
@@ -189,20 +191,38 @@
         </li>
         <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Items</span></a></li>
         <li><a href="#menuAsset"><i class="fa fa-folder"></i> <span>Asset</span></a></li>
-        <li><a href="#menuInventory"><i class="fa fa-folder"></i> <span>Inventory</span></a></li>
+        <li><a href="#menuInventory"><i class="fa fa-folder"></i> <span>Inventori</span></a></li>
         <li><a href="#menuInventory"><i class="fa fa-folder"></i> <span>Lelang</span></a></li>
         <li><a href="#menuInventory"><i class="fa fa-folder"></i> <span>Penghapusan</span></a></li>
-        <li><a href="#menuInventory"><i class="fa fa-folder"></i> <span>Master Data</span></a></li>
-        <li class="header">PUSAT</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i>
+            <span>Master Data</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Lokasi</a></li>
+            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> User Management</a></li>
+          </ul>
+        </li>
+        <li class="header">PUSAT UMUM</li>
         <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Approval</span></a></li>
         <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Laporan</span></a></li>
-        <li class="header">UMUM</li>
-        <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Approval</span></a></li>
-        <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Laporan</span></a></li>
-        <li class="header">KEUANGAN</li>
+        <li class="header">PUSAT KEUANGAN</li>
         <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Approval</span></a></li>
         <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Laporan</span></a></li>
         <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>COA</span></a></li>
+        <li class="header">CABANG UMUM</li>
+        <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Approval</span></a></li>
+        <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Laporan</span></a></li>
+        <li class="header">CABANG KEUANGAN</li>
+        <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Approval</span></a></li>
+        <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Laporan</span></a></li>
+        <li class="header">UNIT PELAYANAN</li>
+        <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Approval</span></a></li>
+        <li><a href="#menuItems"><i class="fa fa-folder"></i> <span>Laporan</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -296,6 +316,21 @@
       </div>
       <!-- /.row -->
       
+      <!-- Custom tabs (Charts with tabs)-->
+      <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">
+          <li class="active"><a href="#revenue-chart" data-toggle="tab">Depreciation</a></li>
+          <li><a href="#sales-chart" data-toggle="tab">Inventory</a></li>
+          <li class="pull-left header"><i class=""></i> </li>
+        </ul>
+        <div class="tab-content no-padding">
+          <!-- Morris chart - Sales -->
+          <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
+          <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+        </div>
+      </div>
+      <!-- /.nav-tabs-custom -->
 
     </section>
     <!-- /.content -->
@@ -447,6 +482,11 @@
                     <input type="checkbox"> Apakah item berjenis stock?
                   </label>
                 </div>
+                <div class="checkbox col-md-12">
+                  <label>
+                    <input type="checkbox"> Apakah item berjenis bundling?
+                  </label>
+                </div>
               </div>
             </form>
             <div class="box-footer">
@@ -514,43 +554,43 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Asset ID</th>
+                  <th>Nama Asset</th>
+                  <th>Kategori</th>
+                  <th>Lokasi</th>
+                  <th>Nilai</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.7</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.7</td>
-                  <td>A</td>
+                  <td>AST00001</td>
+                  <td>Toyota Kijang 1997</td>
+                  <td>Transportasi</td>
+                  <td>Pusat</td>
+                  <td>Rp 19.000.000.000</td>
                 </tr>
                 <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.8</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.8</td>
-                  <td>A</td>
+                  <td>AST00001</td>
+                  <td>Toyota Kijang 1997</td>
+                  <td>Transportasi</td>
+                  <td>Cabang Jogja</td>
+                  <td>Rp 19.000.000.000</td>
                 </tr>
                 <tr>
-                  <td>Gecko</td>
-                  <td>Seamonkey 1.1</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
+                  <td>AST00001</td>
+                  <td>Toyota Kijang 1997</td>
+                  <td>Transportasi</td>
+                  <td>Cabang Papua</td>
+                  <td>Rp 19.000.000.000</td>
                 </tr>
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Asset ID</th>
+                  <th>Nama Asset</th>
+                  <th>Kategori</th>
+                  <th>Lokasi</th>
+                  <th>Nilai</th>
                 </tr>
                 </tfoot>
               </table>
@@ -558,6 +598,308 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+  </div>
+  
+  <div class="content-wrapper" id="menuAssetDetail">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Asset
+        <small>Detail Information</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#menuAsset">Asset</a></li>
+        <li class="active">Nama Asset</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>GAMBAR ASSET</h5>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <img class="img-responsive" src="https://goozir.com/wp-content/uploads/2020/04/kijang-super.jpg" />
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>ASSET QRCODE</h5>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <img class="img-responsive" src="https://www.ginifab.com/feeds/qr_code/img/qrcode.jpg" />
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <div class="row">
+            <div class="col-xs-12 col-lg-4">
+              <a href="#" class="btn btn-block btn-warning mb-2 p-2" style="text-align:left">
+                 <i class="fa fa-map-marker font-larger"></i> <strong>Pindahkan Asset</strong> <i class="fa fa-angle-right pull-right font-larger"></i>
+              </a>
+            </div>
+          </div>
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <div class="checkbox">
+                <h5>INFORMASI ASSET</h5>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body row">
+                <div class="form-group col-md-6">
+                  <label for="assetID">ID Asset</label>
+                  <input type="text" class="form-control" id="assetID" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetName">Nama Asset</label>
+                  <input type="text" class="form-control" id="assetName" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetOwner">Pemilik Asset</label>
+                  <input type="text" class="form-control" id="assetOwner" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetLocation">Lokasi Asset</label>
+                  <input type="text" class="form-control" id="assetLocation" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetOwner">Departemen</label>
+                  <input type="text" class="form-control" id="assetOwner" placeholder="">
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>BUKTI PEMBELIAN</h5>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body row">
+                <div class="form-group col-md-12">
+                  <label for="exampleInputFile">Bukti Pembelian</label>
+                  <input type="file" id="exampleInputFile">
+
+                  <p class="help-block">Maximum 1MB pdf atau image file</p>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>DEPRESIASI</h5>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>
+                      <input type="checkbox">
+                    </th>
+                    <th>Tanggal</th>
+                    <th>Jenis Depresiasi</th>
+                    <th>Nilai Depresiasi</th>
+                    <th>Akumulasi Depresiasi</th>
+                    <th>Status Jadwal</th>
+                    <th>Nilai Akhir</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2020</td>
+                    <td>Garis Lurus</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>Tereksekusi</td>
+                    <td>10.000.000</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2020</td>
+                    <td>Garis Lurus</td>
+                    <td>2.000.000</td>
+                    <td>2.000.000</td>
+                    <td>Tereksekusi</td>
+                    <td>8.000.000</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2021</td>
+                    <td>Garis Lurus</td>
+                    <td>2.000.000</td>
+                    <td>4.000.000</td>
+                    <td>Tereksekusi</td>
+                    <td>6.000.000</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2022</td>
+                    <td>Garis Lurus</td>
+                    <td>2.000.000</td>
+                    <td>6.000.000</td>
+                    <td>Tereksekusi</td>
+                    <td>4.000.000</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2023</td>
+                    <td>Garis Lurus</td>
+                    <td>2.000.000</td>
+                    <td>8.000.000</td>
+                    <td>Standby</td>
+                    <td>2.000.000</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2024</td>
+                    <td>Garis Lurus</td>
+                    <td>2.000.000</td>
+                    <td>10.000.000</td>
+                    <td>Standby</td>
+                    <td>0.000.000</td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th><input type="checkbox"></th>
+                    <th>Tanggal</th>
+                    <th>Jenis Depresiasi</th>
+                    <th>Nilai Depresiasi</th>
+                    <th>Akumulasi Depresiasi</th>
+                    <th>Status Jadwal</th>
+                    <th>Nilai Akhir</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </form>
+          </div>
+          
+          <div class="box">
+            <div class="box-header with-border">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Apakah asset diasuransikan?
+                </label>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body row">
+                <div class="form-group col-md-6">
+                  <label for="itemReff">No Polis</label>
+                  <input type="text" class="form-control" id="itemReff" placeholder="Relasi asset terhadap item">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="itemName">Issuer</label>
+                  <input type="text" class="form-control" id="itemName" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetID">Tanggal Terbit</label>
+                  <input type="text" class="form-control" id="assetID" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetName">Tanggal Berakhir</label>
+                  <input type="text" class="form-control" id="assetName" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetOwner">Nilai Asuransi</label>
+                  <input type="text" class="form-control" id="assetOwner" placeholder="">
+                </div>
+              </div>
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>ASSET HISTORI</h5>
+            </div>
+            <div class="box-body row">
+              <div class="col-xs-12">
+                <ul class="timeline">
+                  <!-- timeline time label -->
+                  <li class="time-label">
+                      <span class="bg-red">
+                          10 Feb. 2014
+                      </span>
+                  </li>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <li>
+                      <!-- timeline icon -->
+                      <i class="fa fa-info bg-blue"></i>
+                      <div class="timeline-item bg-lightgray">
+                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+              
+                          <h3 class="timeline-header"><a href="#">ADI LESMANA</a> PUSAT: Keuangan</h3>
+              
+                          <div class="timeline-body">
+                              Memindahkan asset dari pusat ke cabang papua
+                          </div>
+              
+                          <div class="timeline-footer">
+                              
+                          </div>
+                      </div>
+                  </li>
+                  <li class="time-label">
+                      <span class="bg-red">
+                          25 Feb. 2014
+                      </span>
+                  </li>
+                  <!-- timeline item -->
+                  <li>
+                      <!-- timeline icon -->
+                      <i class="fa fa-info bg-blue"></i>
+                      <div class="timeline-item bg-lightgray">
+                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+              
+                          <h3 class="timeline-header"><a href="#">SISTEM</a></h3>
+              
+                          <div class="timeline-body">
+                              Depresiasi asset senilai Rp 100.000 dari Rp 99.000.000 menjadi Rp 98.900.000
+                          </div>
+              
+                          <div class="timeline-footer">
+                              
+                          </div>
+                      </div>
+                  </li>
+                  <!-- END timeline item -->
+              </ul>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- /.col -->
       </div>
@@ -787,8 +1129,6 @@
     
   </div>
   
-  
-  
   <!-- INVENTORY -->
   <div class="content-wrapper" id="menuInventory">
     <!-- Content Header (Page header) -->
@@ -838,43 +1178,48 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Inventori ID</th>
+                  <th>Nama Inv</th>
+                  <th>Kategori</th>
+                  <th>Lokasi</th>
+                  <th>Stok</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.7</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.7</td>
-                  <td>A</td>
+                  <td>INV00001</td>
+                  <td>Blanko Polis 290001-390001</td>
+                  <td>Material Teknis</td>
+                  <td>Pusat</td>
+                  <td>1 RIM</td>
+                  <td>Digunakan</td>
                 </tr>
                 <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.8</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.8</td>
-                  <td>A</td>
+                  <td>INV00002</td>
+                  <td>Blanko Polis 290001-390001</td>
+                  <td>Material Teknis</td>
+                  <td>Pusat</td>
+                  <td>1 RIM</td>
+                  <td>Digunakan</td>
                 </tr>
                 <tr>
-                  <td>Gecko</td>
-                  <td>Seamonkey 1.1</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
+                  <td>INV00003</td>
+                  <td>Blanko Polis 290001-390001</td>
+                  <td>Material Teknis</td>
+                  <td>Cabang Jogja</td>
+                  <td>1 RIM</td>
+                  <td>Digunakan</td>
                 </tr>
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Inventori ID</th>
+                  <th>Nama Inv</th>
+                  <th>Kategori</th>
+                  <th>Lokasi</th>
+                  <th>Stok</th>
+                  <th>Status</th>
                 </tr>
                 </tfoot>
               </table>
@@ -889,7 +1234,405 @@
     </section>
   </div>
   
+  <div class="content-wrapper" id="menuInventoryDetail">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Inventori
+        <small>Detail Information</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#menuAsset">Inventori</a></li>
+        <li class="active">Nama Inventori</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>GAMBAR INVENTORI</h5>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <img class="img-responsive" src="https://cf.shopee.co.id/file/aff0d022a640b2becf482270f14f24f7" />
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>ASSET QRCODE</h5>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <img class="img-responsive" src="https://www.ginifab.com/feeds/qr_code/img/qrcode.jpg" />
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <div class="row">
+            <div class="col-xs-12 col-lg-4">
+              <a href="#" class="btn btn-block btn-success mb-2 p-2" style="text-align:left">
+                <strong>Buka Bundling</strong> <i class="fa fa-angle-right pull-right font-larger"></i>
+              </a>
+            </div>
+          </div>
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <div class="checkbox">
+                <h5>INFORMASI ASSET</h5>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body row">
+                <div class="form-group col-md-6">
+                  <label for="assetID">ID Asset</label>
+                  <input type="text" class="form-control" id="assetID" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetName">Nama Asset</label>
+                  <input type="text" class="form-control" id="assetName" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetOwner">Pemilik Asset</label>
+                  <input type="text" class="form-control" id="assetOwner" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetLocation">Lokasi Asset</label>
+                  <input type="text" class="form-control" id="assetLocation" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetOwner">Departemen</label>
+                  <input type="text" class="form-control" id="assetOwner" placeholder="">
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>BUKTI PEMBELIAN</h5>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body row">
+                <div class="form-group col-md-12">
+                  <label for="exampleInputFile">Bukti Pembelian</label>
+                  <input type="file" id="exampleInputFile">
+
+                  <p class="help-block">Maximum 1MB pdf atau image file</p>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>BUNDLING REPORT</h5>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>
+                      <input type="checkbox">
+                    </th>
+                    <th>ID</th>
+                    <th>Status Jadwal</th>
+                    <th>Ref Penggunaan</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>20001</td>
+                    <td>Digunakan</td>
+                    <td>POLIS000001</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>20002</td>
+                    <td>Digunakan</td>
+                    <td>POLIS000001</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>20003</td>
+                    <td>Digunakan</td>
+                    <td>POLIS000001</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>20004</td>
+                    <td>Digunakan</td>
+                    <td>POLIS000001</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>20005</td>
+                    <td>Rusak</td>
+                    <td>POLIS000001</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>20006</td>
+                    <td>Hilang</td>
+                    <td>POLIS000001</td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>
+                      <input type="checkbox">
+                    </th>
+                    <th>ID</th>
+                    <th>Status Jadwal</th>
+                    <th>Ref Penggunaan</th>
+                    <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </form>
+          </div>
+          
+          <div class="box">
+            <div class="box-header with-border">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Apakah asset diasuransikan?
+                </label>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body row">
+                <div class="form-group col-md-6">
+                  <label for="itemReff">No Polis</label>
+                  <input type="text" class="form-control" id="itemReff" placeholder="Relasi asset terhadap item">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="itemName">Issuer</label>
+                  <input type="text" class="form-control" id="itemName" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetID">Tanggal Terbit</label>
+                  <input type="text" class="form-control" id="assetID" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetName">Tanggal Berakhir</label>
+                  <input type="text" class="form-control" id="assetName" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="assetOwner">Nilai Asuransi</label>
+                  <input type="text" class="form-control" id="assetOwner" placeholder="">
+                </div>
+              </div>
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          
+          <div class="box">
+            <div class="box-header with-border">
+              <h5>INVENTORI TRACKING</h5>
+            </div>
+            <div class="box-body row">
+              <div class="col-xs-12">
+                <ul class="timeline">
+                  <!-- timeline time label -->
+                  <li class="time-label">
+                      <span class="bg-red">
+                          10 Feb. 2014
+                      </span>
+                  </li>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <li>
+                      <!-- timeline icon -->
+                      <i class="fa fa-info bg-blue"></i>
+                      <div class="timeline-item bg-lightgray">
+                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+              
+                          <h3 class="timeline-header"><a href="#">ADI LESMANA</a> PUSAT: Keuangan</h3>
+              
+                          <div class="timeline-body">
+                              Memindahkan asset dari pusat ke cabang papua
+                          </div>
+              
+                          <div class="timeline-footer">
+                              
+                          </div>
+                      </div>
+                  </li>
+                  <li class="time-label">
+                      <span class="bg-red">
+                          25 Feb. 2014
+                      </span>
+                  </li>
+                  <!-- timeline item -->
+                  <li>
+                      <!-- timeline icon -->
+                      <i class="fa fa-info bg-blue"></i>
+                      <div class="timeline-item bg-lightgray">
+                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+              
+                          <h3 class="timeline-header"><a href="#">SISTEM</a></h3>
+              
+                          <div class="timeline-body">
+                              Depresiasi asset senilai Rp 100.000 dari Rp 99.000.000 menjadi Rp 98.900.000
+                          </div>
+              
+                          <div class="timeline-footer">
+                              
+                          </div>
+                      </div>
+                  </li>
+                  <!-- END timeline item -->
+              </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+  </div>
   
+  <!-- MASTER DATA -->
+  <div class="content-wrapper" id="menuMasterLokasi">
+    <section class="content-header">
+      <h1>
+        Lokasi
+        <small>Pengaturan</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#menuItems">Items</a></li>
+        <li class="active">Tambah Item</li>
+      </ol>
+    </section>
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box box-primary">
+            <div class="box-header">
+              <a href="" class="btn btn-primary">Tambah Lokasi</a>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body row">
+                <div class="col-xs-12">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th width="10px"><input type="checkbox"></th>
+                        <th>ID Lokasi</th>
+                        <th>Nama Lokasi</th>
+                        <th>Jenis Lokasi</th>
+                        <th>Alamat</th>
+                        <th>Lang/Lat</th>
+                        <th>Parent</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>LOC0001</td>
+                        <td>Wisma Raharja</td>
+                        <td>Pusat</td>
+                        <td>Jl. xxx</td>
+                        <td>5</td>
+                        <td>LOC001
+                          <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>LOC0002</td>
+                        <td>Gedung Birawa</td>
+                        <td>Cabang</td>
+                        <td>Jl. xxx</td>
+                        <td>5</td>
+                        <td>LOC001
+                          <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>LOC0003</td>
+                        <td>Transportasi</td>
+                        <td>Kijang</td>
+                        <td>Jl. xxx</td>
+                        <td>5</td>
+                        <td>LOC001
+                          <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th><input type="checkbox"></th>
+                        <td>LOC0004</td>
+                        <td>Transportasi</td>
+                        <td>Kijang</td>
+                        <td>Jl. xxx</td>
+                        <td>5</td>
+                        <td>LOC001
+                          <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tfoot>
+                </table>
+                </div>
+              </div>
+            </form>
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+  </div>
   
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -1133,5 +1876,88 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script>
+  $(function () {
+    "use strict";
+
+    // AREA CHART
+    var area = new Morris.Area({
+      element: 'revenue-chart',
+      resize: true,
+      data: [
+        {y: '2011 Q1', item1: 2666, item2: 2666},
+        {y: '2011 Q2', item1: 2778, item2: 2294},
+        {y: '2011 Q3', item1: 4912, item2: 1969},
+        {y: '2011 Q4', item1: 3767, item2: 3597},
+        {y: '2012 Q1', item1: 6810, item2: 1914},
+        {y: '2012 Q2', item1: 5670, item2: 4293},
+        {y: '2012 Q3', item1: 4820, item2: 3795},
+        {y: '2012 Q4', item1: 15073, item2: 5967},
+        {y: '2013 Q1', item1: 10687, item2: 4460},
+        {y: '2013 Q2', item1: 8432, item2: 5713}
+      ],
+      xkey: 'y',
+      ykeys: ['item1', 'item2'],
+      labels: ['Item 1', 'Item 2'],
+      lineColors: ['#a0d0e0', '#3c8dbc'],
+      hideHover: 'auto'
+    });
+
+    // LINE CHART
+    var line = new Morris.Line({
+      element: 'line-chart',
+      resize: true,
+      data: [
+        {y: '2011 Q1', item1: 2666},
+        {y: '2011 Q2', item1: 2778},
+        {y: '2011 Q3', item1: 4912},
+        {y: '2011 Q4', item1: 3767},
+        {y: '2012 Q1', item1: 6810},
+        {y: '2012 Q2', item1: 5670},
+        {y: '2012 Q3', item1: 4820},
+        {y: '2012 Q4', item1: 15073},
+        {y: '2013 Q1', item1: 10687},
+        {y: '2013 Q2', item1: 8432}
+      ],
+      xkey: 'y',
+      ykeys: ['item1'],
+      labels: ['Item 1'],
+      lineColors: ['#3c8dbc'],
+      hideHover: 'auto'
+    });
+
+    //DONUT CHART
+    var donut = new Morris.Donut({
+      element: 'sales-chart',
+      resize: true,
+      colors: ["#3c8dbc", "#f56954", "#00a65a"],
+      data: [
+        {label: "Download Sales", value: 12},
+        {label: "In-Store Sales", value: 30},
+        {label: "Mail-Order Sales", value: 20}
+      ],
+      hideHover: 'auto'
+    });
+    //BAR CHART
+    var bar = new Morris.Bar({
+      element: 'bar-chart',
+      resize: true,
+      data: [
+        {y: '2006', a: 100, b: 90},
+        {y: '2007', a: 75, b: 65},
+        {y: '2008', a: 50, b: 40},
+        {y: '2009', a: 75, b: 65},
+        {y: '2010', a: 50, b: 40},
+        {y: '2011', a: 75, b: 65},
+        {y: '2012', a: 100, b: 90}
+      ],
+      barColors: ['#00a65a', '#f56954'],
+      xkey: 'y',
+      ykeys: ['a', 'b'],
+      labels: ['CPU', 'DISK'],
+      hideHover: 'auto'
+    });
+  });
+</script>
 </body>
 </html>
